@@ -252,7 +252,7 @@ function _compileOnUnix() {
   /*#__PURE__*/
   _regenerator.default.mark(function _callee5(nodeVersion, targetArch) {
     var opts,
-        fullStatic,
+        fullyStatic,
         args,
         cpu,
         major,
@@ -265,7 +265,7 @@ function _compileOnUnix() {
         switch (_context5.prev = _context5.next) {
           case 0:
             opts = _args5.length > 2 && _args5[2] !== undefined ? _args5[2] : {};
-            fullStatic = opts.fullStatic;
+            fullyStatic = opts.fullyStatic;
             args = [];
             cpu = {
               x86: 'ia32',
@@ -282,7 +282,7 @@ function _compileOnUnix() {
             // against packaged apps, hence v8_inspector is useless
 
             major = nodeVersion.match(/^v?(\d+)/)[1] | 0;
-            if (fullStatic === true) args.push('--fully-static');
+            if (fullyStatic === true) args.push('--fully-static');
             if (major >= 6) args.push('--without-inspector'); // https://github.com/mhart/alpine-node/blob/base-7.4.0/Dockerfile#L33
 
             if (_system.hostPlatform === 'alpine') args.push('--without-snapshot'); // TODO same for windows?
